@@ -1,6 +1,7 @@
 {
   "conventionalCommits.scopes": [
     "LinkedList",
-    "Stack"
+    "Stack",
+    "Queue"
   ]
 }
