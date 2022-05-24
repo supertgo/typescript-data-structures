@@ -27,9 +27,7 @@ export class Stack<T> implements IStack<T> {
     if(this.isEmpty()) return null;
 
     const lastNodeIndex = this.size()
-    const nodeToBeDeleted = this.peek()
-
-    this.linkedList.deleteNode(lastNodeIndex - 1)
+    const nodeToBeDeleted = this.linkedList.deleteNode(lastNodeIndex - 1)
 
     return nodeToBeDeleted
   }
