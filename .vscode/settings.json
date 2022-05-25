@@ -2,6 +2,7 @@
   "conventionalCommits.scopes": [
     "LinkedList",
     "Stack",
-    "Queue"
+    "Queue",
+    "SortedLinkedList"
   ]
 }
