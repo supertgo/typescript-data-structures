@@ -11,24 +11,43 @@ export class SortedLinkedList implements ISortedLinkedList {
     this.tail = null;
     this.length = 0;
   }
-  
- 
+
   insert(data: SortedLinkedListNode): void {
     if(!this.head) {
       this.head = data;
       this.tail = data;
     } else {
+ 
       let node = this.head;
 
-      if(data < node) {
-        this.head = data;
-      
+      for(let i = 0; i < this.length; i++) {
+        if(data.value < node.value) {
+          if(i > 0) {
+            const previousNode = this.getAt(i - 1)
+            previousNode.next = data;
+            data.next = node;
+          } else {
+            this.head = data;
+            data.next = node;
+          }
+        }
+
+        if (data.value === node.value) {
+          if(i > 0) {
+            const nextNodeOfCurrentNode = node.next; 
+            node.next = data;
+            data.next = nextNodeOfCurrentNode
+          } else {
+            this.head = data;
+            data.next = node;
+          }
+        }
+
+        node = node.next;
       }
 
-      for(let i = 0; i < this.length - 1; i++) {
-
-      }
     }
+    this.length += 1
   }
   delete(data: SortedLinkedListNode): void {
     throw new Error("Method not implemented.");
@@ -40,6 +59,25 @@ export class SortedLinkedList implements ISortedLinkedList {
     throw new Error("Method not implemented.");
   }
   print(): string {
-    throw new Error("Method not implemented.");
+    const values: String[] = [];
+    let node = this.head;
+
+    for(let i = 0; i < this.length; i++) {
+      values.push(`${node.value}`)
+      node = node.next;
+    }
+
+    return values.join(', ')
+  }
+  getAt(index: number): SortedLinkedListNode {
+    if(index < 0 || index > this.length ) return null
+
+    let node = this.head;
+
+    for(let i = 0; i < index; i++) {
+      node = node.next;
+    }
+
+    return node;
   }
 }

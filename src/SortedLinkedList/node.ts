@@ -1,6 +1,6 @@
 export class SortedLinkedListNode {
   value: number | null = null
-  next:  number | null = null
+  next: SortedLinkedListNode  | null = null
 
   constructor(value=null) {
     this.value = value;
