@@ -13,49 +13,75 @@ export class SortedLinkedList implements ISortedLinkedList {
   }
 
   insert(data: SortedLinkedListNode): void {
-    if(!this.head) {
+    if(this.length == 0) {      
       this.head = data;
       this.tail = data;
     } else {
- 
-      let node = this.head;
-
-      for(let i = 0; i < this.length; i++) {
-        if(data.value < node.value) {
-          if(i > 0) {
+      let node = this.head; 
+    
+      for(let i = 0; i < this.length; i++) {     
+        if(data.value < node.value) { 
+          if(i > 0) {     
             const previousNode = this.getAt(i - 1)
             previousNode.next = data;
             data.next = node;
           } else {
-            this.head = data;
             data.next = node;
-          }
-        }
+            this.head = data;
 
-        if (data.value === node.value) {
-          if(i > 0) {
+            break;
+          }
+        } else if (data.value === node.value) {
+          if(i > 0) {        
             const nextNodeOfCurrentNode = node.next; 
             node.next = data;
             data.next = nextNodeOfCurrentNode
           } else {
-            this.head = data;
-            data.next = node;
+            data.next = node.next;
+            this.head.next = data;  
+            
+            break;
+          }
+        } else {
+          if(data.value > node.value) {
+            if(node.next === null) {
+              node.next = data;
+              this.tail = data;
+            } else {
+              if (node.next.value > data.value) {
+                data.next = node.next;
+                node.next = data;
+              }
+            }
           }
         }
-
         node = node.next;
       }
-
     }
-    this.length += 1
+
+   this.length += 1;
   }
-  delete(data: SortedLinkedListNode): void {
-    throw new Error("Method not implemented.");
+  delete(index: number): SortedLinkedListNode {
+    if(index < 0 || index > this.length || !this.head) return null;
+
+    let nodeToBeDeleted: SortedLinkedListNode;
+
+    if(index === 0) {
+      nodeToBeDeleted = this.head;
+      this.head = this.head.next;
+    } else {
+      const previousNode = this.getAt(index - 1)
+      nodeToBeDeleted = previousNode.next;
+      previousNode.next = nodeToBeDeleted.next;
+    }
+
+    this.length -= 1;
+    return nodeToBeDeleted
   }
   size(): number {
     return this.length;
   }
-  removeDuplicatedNodes(): number[] {
+  removeDuplicatedNodes(): SortedLinkedListNode[] {
     throw new Error("Method not implemented.");
   }
   print(): string {
@@ -63,8 +89,8 @@ export class SortedLinkedList implements ISortedLinkedList {
     let node = this.head;
 
     for(let i = 0; i < this.length; i++) {
-      values.push(`${node.value}`)
-      node = node.next;
+        values.push(`${node.value}`)
+        node = node.next;
     }
 
     return values.join(', ')
