@@ -139,15 +139,13 @@ describe('SortedLinkedList', () => {
     const node3 = new SortedLinkedListNode(32)
     const node4 = new SortedLinkedListNode(32)
 
-
     sortedLinkedList.insert(node1);
     sortedLinkedList.insert(node2);
-    expect(sortedLinkedList.print()).toStrictEqual('55, 55');
+    sortedLinkedList.insert(node3);
     sortedLinkedList.insert(node4);
 
-    
-
-    expect(sortedLinkedList.print()).toStrictEqual('32, 55, 55');
-
+    expect(sortedLinkedList.print()).toStrictEqual('32, 32, 55, 55');
+    expect(sortedLinkedList.removeDuplicatedNodes()).toStrictEqual('32, 55')
+    expect(sortedLinkedList.print()).toStrictEqual('32, 55');
   })
 })

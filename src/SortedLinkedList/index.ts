@@ -81,8 +81,17 @@ export class SortedLinkedList implements ISortedLinkedList {
   size(): number {
     return this.length;
   }
-  removeDuplicatedNodes(): SortedLinkedListNode[] {
-    throw new Error("Method not implemented.");
+  removeDuplicatedNodes(): string {
+    const removedNodes: string[] = [];
+    let node = this.head;
+
+    for(let i = 0; i < this.length; i++) {
+      if(node.value === node.next.value) {
+        removedNodes.push(`${this.delete(i).value}`)
+      }
+    }
+
+    return removedNodes.join(', ')
   }
   print(): string {
     const values: String[] = [];

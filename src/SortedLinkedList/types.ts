@@ -4,7 +4,7 @@ export interface ISortedLinkedList {
   insert(data: SortedLinkedListNode): void;
   delete(index: number): SortedLinkedListNode;
   size(): number;
-  removeDuplicatedNodes(): SortedLinkedListNode[]
+  removeDuplicatedNodes(): string
   print(): string;
   getAt(index: number): SortedLinkedListNode
 }
