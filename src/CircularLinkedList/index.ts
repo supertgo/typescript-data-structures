@@ -12,44 +12,77 @@ export class CircularLinkedList<T> implements ICircularLinkedList<T> {
   }
 
   insertWhenEmpty(data: LinkedListNode<T>): LinkedListNode<T> | void {
-    if(this.last === null) {
+    if(this.last !== null) {
+      return data;
+    } else {
       this.last = data;
       this.last.next = data;
-
-      return
+      this.length += 1;
     }
-
-    return data;
   }
 
   insertAtEnd(data: Node<T>): void {
     if(!this.last) {
       this.insertWhenEmpty(data)
+      return
     }
-
+    
     data.next = this.last.next;
     this.last.next = data;
     this.last = data;
+
+    this.length += 1;
   }
   insertInBegin(data: Node<T>): void {
     if(!this.last) {
-     this.insertWhenEmpty(data)
+     this.insertWhenEmpty(data);
+     return
     } else {
       data.next = this.last.next;
       this.last.next = data;
+
+      this.length += 1;
     }
+
+    
   }
   insert(data: Node<T>, index: number): void {
-    throw new Error("Method not implemented.");
+    if(index < 0 || index > this.length) return null;
+
+    if(index === 0) {
+      this.insertInBegin(data);
+      return
+    } else if(index === this.length - 1) {
+      
+      this.insertAtEnd(data);
+      return
+    } else {
+
+      console.log('entrou');
+      
+      const previousNode = this.get(index - 1);
+      data.next = previousNode.next;
+      previousNode.next = data;
+
+      this.length += 1;
+    }
   }
   deleteNode(index: number): Node<T> {
     throw new Error("Method not implemented.");
   }
   size(): number {
-    throw new Error("Method not implemented.");
+   return this.length;
   }
   get(index: number): Node<T> {
-    throw new Error("Method not implemented.");
+    if(index < 0 || index > this.length) return null;
+
+    let node = this.last.next;
+
+    for(let i = 0; i < index; i++) {
+      node = node.next;
+    }
+    
+    return node;
   }
   set(data: Node<T>, index: number): void {
     throw new Error("Method not implemented.");
