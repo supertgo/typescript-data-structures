@@ -52,14 +52,11 @@ export class CircularLinkedList<T> implements ICircularLinkedList<T> {
     if(index === 0) {
       this.insertInBegin(data);
       return
-    } else if(index === this.length - 1) {
+    } else if(index === this.length) {
       
       this.insertAtEnd(data);
       return
     } else {
-
-      console.log('entrou');
-      
       const previousNode = this.get(index - 1);
       data.next = previousNode.next;
       previousNode.next = data;

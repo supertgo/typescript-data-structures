@@ -72,6 +72,9 @@ describe('CircularLinkedList', () => {
     circularLinkedList.insertAtEnd(node2)
     circularLinkedList.insert(node3, 1)
 
+    console.log(circularLinkedList.last);
+    
+
     const firstNode = circularLinkedList.last.next;
 
     
