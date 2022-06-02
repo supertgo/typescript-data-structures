@@ -10,7 +10,7 @@ export class CircularLinkedList<T> implements ICircularLinkedList<T> {
     this.last = null;
     this.length = 0;  
   }
-
+ 
   insertWhenEmpty(data: LinkedListNode<T>): LinkedListNode<T> | void {
     if(this.last !== null) {
       return data;
@@ -65,8 +65,53 @@ export class CircularLinkedList<T> implements ICircularLinkedList<T> {
     }
   }
   deleteNode(index: number): Node<T> {
-    throw new Error("Method not implemented.");
+    if(index < 0 || index > this.length || this.length === 0) 
+      return null;
+
+    this.length -= 1;
+
+    if(index === 0) {
+      if(this.length === 1) {
+        const nodeToBeDeleted = this.last;
+        this.last.next = null;
+        this.last = null;
+
+        return nodeToBeDeleted;
+      }
+      const firstNode = this.last.next;
+      this.last.next = firstNode.next;
+
+      return firstNode;
+    } else if (index === this.length - 1) {
+      const previousNode = this.get(index - 1);
+      const nodeToBeDeleted = this.last;
+
+      previousNode.next = this.last.next;
+      this.last = previousNode;
+
+      return nodeToBeDeleted
+    }
+
   }
+
+  print(): string {
+    if(!this.last) return ''
+
+    console.log(this.last);
+    console.log(this.last.next);
+    
+    
+    let values = [];
+    let node = this.last.next;
+
+    for(let i = 0; i < this.length; i++){
+      values.push(`${node.value}`)
+      node = node.next;
+    }
+
+    return values.join(', ')
+  }
+
   size(): number {
    return this.length;
   }
