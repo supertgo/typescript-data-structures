@@ -68,7 +68,6 @@ export class CircularLinkedList<T> implements ICircularLinkedList<T> {
     if(index < 0 || index > this.length || this.length === 0) 
       return null;
 
-    this.length -= 1;
 
     if(index === 0) {
       if(this.length === 1) {
@@ -76,10 +75,14 @@ export class CircularLinkedList<T> implements ICircularLinkedList<T> {
         this.last.next = null;
         this.last = null;
 
+        this.length -= 1;
+
         return nodeToBeDeleted;
       }
       const firstNode = this.last.next;
       this.last.next = firstNode.next;
+
+      this.length -= 1;
 
       return firstNode;
     } else if (index === this.length - 1) {
@@ -89,6 +92,9 @@ export class CircularLinkedList<T> implements ICircularLinkedList<T> {
       previousNode.next = this.last.next;
       this.last = previousNode;
 
+      this.length -= 1;
+      
+
       return nodeToBeDeleted
     }
 
@@ -97,10 +103,6 @@ export class CircularLinkedList<T> implements ICircularLinkedList<T> {
   print(): string {
     if(!this.last) return ''
 
-    console.log(this.last);
-    console.log(this.last.next);
-    
-    
     let values = [];
     let node = this.last.next;
 
