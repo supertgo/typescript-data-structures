@@ -133,7 +133,7 @@ describe('CircularLinkedList', () => {
     expect(circularLinkedList.print()).toStrictEqual('2, 3')
   })
 
-  fit('should delete the last node of the list', () => {
+  it('should delete the last node of the list', () => {
     const circularLinkedList = new CircularLinkedList()
     const node1 = new LinkedListNode(1);
     const node2 = new LinkedListNode(2);
@@ -148,5 +148,23 @@ describe('CircularLinkedList', () => {
     expect(circularLinkedList.last).toStrictEqual(node2);
     expect(circularLinkedList.last.next).toStrictEqual(node1);
     expect(circularLinkedList.print()).toStrictEqual('1, 2')
+  })
+
+  it('should set a value', () => {
+    const circularLinkedList = new CircularLinkedList()
+    const node1 = new LinkedListNode(1);
+    const node2 = new LinkedListNode(2);
+    const node3 = new LinkedListNode(3);
+
+    const newNode = new LinkedListNode(5);
+
+    circularLinkedList.insertWhenEmpty(node1)
+    circularLinkedList.insertAtEnd(node2)
+    circularLinkedList.insertAtEnd(node3)
+
+    expect(circularLinkedList.print()).toStrictEqual('1, 2, 3')
+    circularLinkedList.set(newNode, 0)
+    expect(circularLinkedList.print()).toStrictEqual('5, 2, 3')
+    expect(circularLinkedList.last.next.value).toStrictEqual(newNode.value);
   })
 })

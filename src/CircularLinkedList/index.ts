@@ -129,7 +129,10 @@ export class CircularLinkedList<T> implements ICircularLinkedList<T> {
     return node;
   }
   set(data: Node<T>, index: number): void {
-    throw new Error("Method not implemented.");
+    if(index < 0 || index > this.length) return null;
+
+    const oldNode = this.get(0);
+    oldNode.value = data.value;
   }
 
 }
