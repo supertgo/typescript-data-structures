@@ -4,6 +4,7 @@
     "Stack",
     "Queue",
     "SortedLinkedList",
-    "CircularLinkedList"
+    "CircularLinkedList",
+    "DoubleLinkedList"
   ]
 }
