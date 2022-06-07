@@ -130,4 +130,13 @@ describe('DoubleLinkedList', () => {
     expect(doubleLinkedList.head.next).toStrictEqual(node2)
     expect(doubleLinkedList.head.next.next).toStrictEqual(node3)
   })
+
+  it('should delete a node at give index', () => {
+    doubleLinkedList.insertAtEnd(node)
+    doubleLinkedList.insertAtEnd(node3)
+    doubleLinkedList.deleteAt(1)
+  
+    expect(doubleLinkedList.head).toStrictEqual(node)
+    expect(doubleLinkedList.head.next).toStrictEqual(null)
+  })
 })

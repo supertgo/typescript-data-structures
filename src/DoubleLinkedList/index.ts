@@ -10,6 +10,7 @@ export class DoubleLinkedList implements IDoubleLinkedList<Number> {
     this.head = null;
     this.length = 0;
   }
+ 
   get(index: number): DoubleLinkedListNode {
     if(index < 0 || index > this.length) return null;
     let node = this.head;
@@ -105,5 +106,9 @@ export class DoubleLinkedList implements IDoubleLinkedList<Number> {
 
       this.length += 1;
     }
+  }
+
+  deleteAt(index: number): DoubleLinkedListNode {
+    throw new Error("Method not implemented.");
   }
 }
