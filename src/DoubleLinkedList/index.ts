@@ -109,6 +109,11 @@ export class DoubleLinkedList implements IDoubleLinkedList<Number> {
   }
 
   deleteAt(index: number): DoubleLinkedListNode {
-    throw new Error("Method not implemented.");
+    if(index < 0 || index > this.length) return null;
+
+    if(index === 0) {
+      this.head = this.head.next;
+      this.head.prev = null;
+    }
   }
 }
