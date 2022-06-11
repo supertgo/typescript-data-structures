@@ -131,21 +131,36 @@ describe('DoubleLinkedList', () => {
     expect(doubleLinkedList.head.next.next).toStrictEqual(node3)
   })
 
-  fit('should delete the first node', () => {
+  it('should delete the first node', () => {
+    
+
     doubleLinkedList.insertAtEnd(node)
     doubleLinkedList.insertAtEnd(node3)
-    doubleLinkedList.deleteAt(0)
-  
+   
+    expect( doubleLinkedList.deleteAt(0)).toStrictEqual(node)
     expect(doubleLinkedList.head).toStrictEqual(node3)
     expect(doubleLinkedList.head.next).toStrictEqual(null)
+    expect(doubleLinkedList.size()).toBe(1)
+  })
+
+  it('should delete the last node', () => {
+    doubleLinkedList.insertAtEnd(node)
+    doubleLinkedList.insertAtEnd(node3)
+    
+    expect( doubleLinkedList.deleteAt(1)).toStrictEqual(node3)
+    expect(doubleLinkedList.head).toStrictEqual(node)
+    expect(doubleLinkedList.head.next).toStrictEqual(null)
+    expect(doubleLinkedList.size()).toBe(1)
   })
 
   it('should delete a node at give index', () => {
     doubleLinkedList.insertAtEnd(node)
+    doubleLinkedList.insertAtEnd(node2)
     doubleLinkedList.insertAtEnd(node3)
     doubleLinkedList.deleteAt(1)
   
     expect(doubleLinkedList.head).toStrictEqual(node)
-    expect(doubleLinkedList.head.next).toStrictEqual(null)
+    expect(doubleLinkedList.head.next).toStrictEqual(node3)
+    expect(doubleLinkedList.size()).toBe(2)
   })
 })

@@ -112,8 +112,32 @@ export class DoubleLinkedList implements IDoubleLinkedList<Number> {
     if(index < 0 || index > this.length) return null;
 
     if(index === 0) {
+      const nodeToBeDeleted = this.head;
       this.head = this.head.next;
       this.head.prev = null;
+
+      this.length -= 1;
+
+      return nodeToBeDeleted
+    } else if(index === this.length - 1) {
+      const lastNode = this.get(index)
+      const previousNode = lastNode.prev;
+      previousNode.next = null;
+
+      this.length -= 1;
+
+      return lastNode
+    } else {
+      const nodeToBeDeleted = this.get(index)
+      const previousNode = nodeToBeDeleted.prev;
+      const nextNode = nodeToBeDeleted.next;
+
+      previousNode.next = nextNode;
+      nextNode.prev = previousNode;
+
+      this.length -= 1;
+
+      return nodeToBeDeleted;
     }
   }
 }
