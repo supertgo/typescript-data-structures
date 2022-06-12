@@ -3,6 +3,10 @@ import { SortedLinkedListNode } from "./node"
 
 
 describe('SortedLinkedList', () => {
+  let sortedLinkedList: SortedLinkedList
+  beforeEach(() => {
+    sortedLinkedList = new SortedLinkedList()
+  })
   it('should start with a null head and tail', () => {
     const sortedLinkedList = new SortedLinkedList()
     expect(sortedLinkedList.head).toBeNull()
@@ -11,8 +15,6 @@ describe('SortedLinkedList', () => {
 
  
   it('should insert 3 items disordered and ordered', () => {
-    const sortedLinkedList = new SortedLinkedList()
-
     const node1 = new SortedLinkedListNode(55)
     const node2 = new SortedLinkedListNode(11)
     const node3 = new SortedLinkedListNode(32)
@@ -27,8 +29,6 @@ describe('SortedLinkedList', () => {
   })
 
   it('should be to add a node with the same value at head', () => {
-    const sortedLinkedList = new SortedLinkedList()
-
     const node3 = new SortedLinkedListNode(32)
     const node4 = new SortedLinkedListNode(32)
 
@@ -40,8 +40,6 @@ describe('SortedLinkedList', () => {
   })
 
   it('should be able to handle with node that has the same value', () => {
-    const sortedLinkedList = new SortedLinkedList()
-
     const node1 = new SortedLinkedListNode(55)
     const node2 = new SortedLinkedListNode(11)
     const node3 = new SortedLinkedListNode(32)
@@ -59,8 +57,6 @@ describe('SortedLinkedList', () => {
   })
 
   it('should be able to handle with node that has the same value', () => {
-    const sortedLinkedList = new SortedLinkedList()
-
     const node1 = new SortedLinkedListNode(1)
     const node2 = new SortedLinkedListNode(2)
     const node3 = new SortedLinkedListNode(3)
@@ -79,8 +75,6 @@ describe('SortedLinkedList', () => {
 
 
   it('should be able to handle with node that has the same value', () => {
-    const sortedLinkedList = new SortedLinkedList()
-
     const node1 = new SortedLinkedListNode(2)
     const node2 = new SortedLinkedListNode(2)
     const node3 = new SortedLinkedListNode(2)
@@ -102,8 +96,6 @@ describe('SortedLinkedList', () => {
 
 
   it('should not delete an empty linked list', () => {
-    const sortedLinkedList = new SortedLinkedList()
-
  
     expect(sortedLinkedList.print()).toStrictEqual('')
     expect(sortedLinkedList.size()).toBe(0)
@@ -111,8 +103,6 @@ describe('SortedLinkedList', () => {
   })
 
   it('should delete at node passing the index', () => {
-    const sortedLinkedList = new SortedLinkedList()
-
     const node1 = new SortedLinkedListNode(55)
     const node2 = new SortedLinkedListNode(11)
     const node3 = new SortedLinkedListNode(32)
@@ -132,8 +122,6 @@ describe('SortedLinkedList', () => {
   })
 
   it('should remove all duplicated nodes', () => {
-    const sortedLinkedList = new SortedLinkedList()
-
     const node1 = new SortedLinkedListNode(55)
     const node2 = new SortedLinkedListNode(55)
     const node3 = new SortedLinkedListNode(32)

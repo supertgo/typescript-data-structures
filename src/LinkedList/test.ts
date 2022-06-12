@@ -10,15 +10,17 @@ const node5 = new LinkedListNode({ content: '5'})
 
 
 describe('LinkedList', () => {
+  let linkedList: LinkedList<unknown>
+  beforeEach(() => {
+    linkedList = new LinkedList()
+  })
   it('should start with a null head and tail', () => {
-    const linkedList = new LinkedList()
     expect(linkedList.head).toBeNull()
     expect(linkedList.tail).toBeNull()
   })
 
   it('should add only a node in begin', () => {
     const node = new LinkedListNode({ content: '1'})
-    const linkedList = new LinkedList()
 
     linkedList.insertAtEnd(node)
 
@@ -30,7 +32,6 @@ describe('LinkedList', () => {
     const firstNode = new LinkedListNode({ content: '1'})
     const secondNode = new LinkedListNode({ content: '2'})
 
-    const linkedList = new LinkedList()
 
     linkedList.insertAtEnd(firstNode)
     linkedList.insertAtEnd(secondNode)
@@ -41,7 +42,6 @@ describe('LinkedList', () => {
   })
 
   it('should add only a node in begin', () => {
-    const linkedList = new LinkedList()
 
     linkedList.insertInBegin(node1)
     linkedList.insertInBegin(node2)
@@ -52,7 +52,6 @@ describe('LinkedList', () => {
   })
 
   it('should add get the third node', () => {
-    const linkedList = new LinkedList()
 
     linkedList.insertAtEnd(node1)
     linkedList.insertAtEnd(node2)
@@ -64,7 +63,6 @@ describe('LinkedList', () => {
   })
 
   it('should add get the third node', () => {
-    const linkedList = new LinkedList()
 
     linkedList.insertAtEnd(node1)
 
@@ -73,7 +71,6 @@ describe('LinkedList', () => {
   })
 
   it('should return null if the index is greater than size on trying to delete', () => {
-    const linkedList = new LinkedList()
 
     linkedList.insertAtEnd(node1)
 
@@ -83,7 +80,6 @@ describe('LinkedList', () => {
 
   it('should set head and tail to null when has only a node', () => {
     const node1 = new LinkedListNode({ content: '1'})
-    const linkedList = new LinkedList()
 
     linkedList.insertAtEnd(node1)
 
@@ -95,7 +91,6 @@ describe('LinkedList', () => {
   it('should update the and head tail', () => {
     const node1 = new LinkedListNode({ content: '1'})
     const node2 = new LinkedListNode({ content: '1'})
-    const linkedList = new LinkedList()
 
     linkedList.insertAtEnd(node1)
     linkedList.insertAtEnd(node2)
@@ -111,7 +106,6 @@ describe('LinkedList', () => {
 
 
   it('should add get the third node', () => {
-    const linkedList = new LinkedList()
 
     linkedList.insertAtEnd(node1)
     linkedList.insertAtEnd(node2)
@@ -124,7 +118,6 @@ describe('LinkedList', () => {
   })
 
   it('should return null is the index to add is greater than size', () => {
-    const linkedList = new LinkedList()
 
     linkedList.insertAtEnd(node1)
 
@@ -132,7 +125,6 @@ describe('LinkedList', () => {
   })
 
   it('should add in the begin if index equals 0', () => {
-    const linkedList = new LinkedList()
 
     linkedList.insertAtEnd(node1)
     linkedList.insertAtEnd(node2)
@@ -146,7 +138,6 @@ describe('LinkedList', () => {
 
 
   it('should delete get the first node', () => {
-    const linkedList = new LinkedList()
 
     linkedList.insertAtEnd(node1)
     linkedList.insertAtEnd(node2)
@@ -161,7 +152,6 @@ describe('LinkedList', () => {
   })
 
   it('should delete get the third node', () => {
-    const linkedList = new LinkedList()
 
     linkedList.insertAtEnd(node1)
     linkedList.insertAtEnd(node2)
@@ -178,7 +168,6 @@ describe('LinkedList', () => {
 
 
   it('should delete get the last node', () => {
-    const linkedList = new LinkedList()
 
     linkedList.insertAtEnd(node1)
     linkedList.insertAtEnd(node2)
@@ -195,7 +184,6 @@ describe('LinkedList', () => {
     const node1 = new LinkedListNode({ content: '1'})
     const node2 = new LinkedListNode({ content: '2'})
     const updatedNode = new LinkedListNode({ content: 'update'})
-    const linkedList = new LinkedList()
 
     linkedList.insertAtEnd(node1)
     linkedList.insertAtEnd(node2)
