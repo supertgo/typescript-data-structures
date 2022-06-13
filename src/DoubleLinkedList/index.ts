@@ -10,6 +10,9 @@ export class DoubleLinkedList implements IDoubleLinkedList<Number> {
     this.head = null;
     this.length = 0;
   }
+  reverse(): IDoubleLinkedList<Number> {
+    throw new Error("Method not implemented.");
+  }
  
   get(index: number): DoubleLinkedListNode {
     if(index < 0 || index > this.length) return null;
@@ -33,7 +36,6 @@ export class DoubleLinkedList implements IDoubleLinkedList<Number> {
     if(this.head) {
       return null;
     }
-    
     this.head = data;
     this.length += 1;
   }
@@ -76,10 +78,10 @@ export class DoubleLinkedList implements IDoubleLinkedList<Number> {
   }
 
   insertAtEnd(data: DoubleLinkedListNode): void {
-    if(this.isEmpty()) {
+    if(this.isEmpty()) {      
       this.insertWhenEmpty(data)
       return;
-    }
+    }    
     const lastNode = this.get(this.length - 1);
 
     lastNode.next = data;
@@ -139,5 +141,19 @@ export class DoubleLinkedList implements IDoubleLinkedList<Number> {
 
       return nodeToBeDeleted;
     }
+  }
+
+  print(): string {
+    if(!this.head) return ''
+
+    let values: String[] = []
+    let node = this.head;
+
+    for(let i = 0; i < this.length; i++) {
+      values.push(`${node.value}`)
+      node = node.next;
+    }
+
+    return values.join(', ')
   }
 }

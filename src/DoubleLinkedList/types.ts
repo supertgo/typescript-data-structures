@@ -10,4 +10,6 @@ export interface IDoubleLinkedList<Number> {
   insertAtEnd(data: DoubleLinkedListNode): void;
   insertBefore(data: DoubleLinkedListNode, index: number): void;
   deleteAt(index: number): DoubleLinkedListNode;
+  print(): string;
+  reverse(): IDoubleLinkedList<Number>;
 }

@@ -163,4 +163,20 @@ describe('DoubleLinkedList', () => {
     expect(doubleLinkedList.head.next).toStrictEqual(node3)
     expect(doubleLinkedList.size()).toBe(2)
   })
+
+  it('should return a empty string when the list is empty', () => {
+    expect(doubleLinkedList.print()).toStrictEqual('')
+  })
+
+  it('should return a print with the node values', () => {
+    doubleLinkedList.insertAtEnd(node)
+    doubleLinkedList.insertAtEnd(node2)
+    doubleLinkedList.insertAtEnd(node3)
+
+    expect(doubleLinkedList.print()).toStrictEqual('1, 2, 3')
+  })
+
+ 
+
+ 
 })
