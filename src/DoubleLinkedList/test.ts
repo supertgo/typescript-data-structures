@@ -176,7 +176,19 @@ describe('DoubleLinkedList', () => {
     expect(doubleLinkedList.print()).toStrictEqual('1, 2, 3')
   })
 
- 
+  it('should reverse an empty list', () => {
+    expect(doubleLinkedList.reverse()).toBeNull()
+  })
 
- 
+  it('should reverse a doubly linked list', () => {
+    doubleLinkedList.insertAtEnd(node)
+    doubleLinkedList.insertAtEnd(node2)
+    doubleLinkedList.insertAtEnd(node3)
+
+    expect(doubleLinkedList.print()).toStrictEqual('1, 2, 3')
+    doubleLinkedList.reverse()
+    expect(doubleLinkedList.print()).toStrictEqual('3, 2, 1')
+    doubleLinkedList.reverse()
+    expect(doubleLinkedList.print()).toStrictEqual('1, 2, 3')
+  })
 })

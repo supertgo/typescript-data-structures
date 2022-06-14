@@ -10,8 +10,21 @@ export class DoubleLinkedList implements IDoubleLinkedList<Number> {
     this.head = null;
     this.length = 0;
   }
-  reverse(): IDoubleLinkedList<Number> {
-    throw new Error("Method not implemented.");
+  reverse() {
+    if(!this.head) return null;
+    let temp: DoubleLinkedListNode = null;
+    let current = this.head;
+
+    while(current != null) {
+      temp = current.prev;
+      current.prev = current.next;
+      current.next = temp;
+      current = current.prev;
+    }
+
+    if(temp !== null) {
+      this.head = temp.prev;
+    }
   }
  
   get(index: number): DoubleLinkedListNode {
@@ -156,4 +169,5 @@ export class DoubleLinkedList implements IDoubleLinkedList<Number> {
 
     return values.join(', ')
   }
+
 }
