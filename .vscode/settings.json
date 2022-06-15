@@ -5,6 +5,7 @@
     "Queue",
     "SortedLinkedList",
     "CircularLinkedList",
-    "DoubleLinkedList"
+    "DoubleLinkedList",
+    "BinaryTree"
   ]
 }
