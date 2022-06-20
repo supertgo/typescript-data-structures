@@ -1,5 +1,5 @@
 export class BinaryTreeNode {
-  value: Number | null = null
+  value: number | null = null
   left: BinaryTreeNode | null = null
   right: BinaryTreeNode | null = null
 
