@@ -28,7 +28,7 @@ describe('SortedLinkedList', () => {
     expect(sortedLinkedList.size()).toBe(3)
   })
 
-  it('should be to add a node with the same value at head', () => {
+  it('should add a node with the same value at head', () => {
     const node3 = new SortedLinkedListNode(32)
     const node4 = new SortedLinkedListNode(32)
 
@@ -102,7 +102,7 @@ describe('SortedLinkedList', () => {
     expect(sortedLinkedList.delete(0)).toBeNull()
   })
 
-  it('should delete at node passing the index', () => {
+  it('should delete a node passing the index', () => {
     const node1 = new SortedLinkedListNode(55)
     const node2 = new SortedLinkedListNode(11)
     const node3 = new SortedLinkedListNode(32)

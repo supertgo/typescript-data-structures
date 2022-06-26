@@ -98,7 +98,7 @@ describe('BinarySearchTree', () => {
     expect(binarySearchTree.root.left).toStrictEqual(node1);
   })
 
-  fit('should delete the node that has 2 children', () => {
+  it('should delete the node that has 2 children', () => {
     binarySearchTree.insert(node2)
     binarySearchTree.insert(node1)
     binarySearchTree.insert(node4)
@@ -112,8 +112,6 @@ describe('BinarySearchTree', () => {
 
     binarySearchTree.delete(4)
 
-    console.log(binarySearchTree.root.right);
-    
     expect(binarySearchTree.root.right).toEqual({value: 5, left: node3, right: null})
     expect(binarySearchTree.root.right.left).toStrictEqual(node3)
     expect(binarySearchTree.root.left).toStrictEqual(node1);
