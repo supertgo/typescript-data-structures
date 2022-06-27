@@ -2,10 +2,30 @@ import { BinaryTreeNode } from "./node";
 import { IBinarySearchTree } from "./types";
 
 export class BinarySearchTree implements IBinarySearchTree {
-  root: BinaryTreeNode | null = null
+  root: BinaryTreeNode | null = null;
+  printPreOrderList: string[]
 
   constructor() {
     this.root = null;
+    this.printPreOrderList = []
+  }
+ 
+  printPreOrder(): string {
+    if(this.root === null) return ''
+
+    return this.printPreOrderNode(this.root)
+  }
+
+  printPreOrderNode(root: BinaryTreeNode): string {
+    if(root === null) return '';
+
+    this.printPreOrderList.push(`${root.value}`)
+
+    this.printPreOrderNode(root.left)
+
+    this.printPreOrderNode(root.right)
+
+    return this.printPreOrderList.join(', ')
   }
 
   insert( data: BinaryTreeNode): void {

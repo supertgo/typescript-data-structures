@@ -6,4 +6,6 @@ export interface IBinarySearchTree {
   delete(value: number): void;
   deleteNode(root: BinaryTreeNode, value: number): BinaryTreeNode;
   findMinValue(root: BinaryTreeNode): number;
+  printPreOrder(): string;
+  printPreOrderNode(root: BinaryTreeNode): string;
 }

@@ -116,4 +116,14 @@ describe('BinarySearchTree', () => {
     expect(binarySearchTree.root.right.left).toStrictEqual(node3)
     expect(binarySearchTree.root.left).toStrictEqual(node1);
   })
+
+  fit('should print the tree in preorder', () => {
+    binarySearchTree.insert(node2)
+    binarySearchTree.insert(node1)
+    binarySearchTree.insert(node4)
+    binarySearchTree.insert(node3)
+    binarySearchTree.insert(node5)
+
+    expect(binarySearchTree.printPreOrder()).toBe('2, 1, 4, 3, 5')
+  })
 })
